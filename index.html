@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyMate AI | Smart Student Companion</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            StudyMate <span>AI</span>
+        </div>
+
+        <nav>
+         <a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#about">About</a>
+        </nav>
+
+        <button class="theme-btn" onclick="toggleTheme()">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- ===== HOME ===== -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="welcome">WELCOME TO STUDYMATE AI</p>
+
+                <h1>
+                    Study Smarter.<br>
+                    <span>Achieve More.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Your smart student companion for planning,
+                    learning, practicing and tracking your progress.
+                </p>
+
+                <button class="start-btn" onclick="startStudying()">
+                    Start Studying 🚀
+                </button>
+
+            </div>
+
+            <div class="hero-card">
+
+                <div class="robot">
+                    🤖
+                </div>
+
+                <h3>
+                    Hi, Student! 👋
+                </h3>
+
+                <p>
+                    Ready to make today productive?
+                </p>
+
+                <div class="mini-progress">
+
+                    <div class="progress-info">
+                        <span>Today's Progress</span>
+                        <span>0%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===== FEATURES ===== -->
+
+        <section id="features" class="features page-section">
+
+            <div class="section-heading">
+
+                <p>YOUR STUDY TOOLS</p>
+
+                <h2>
+                    Everything You Need to Study Better
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <!-- Planner -->
+
+                <div class="feature-card"
+                     onclick="openFeature('planner')">
+
+                    <div class="feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Study Planner
+                    </h3>
+
+                    <p>
+                        Plan your daily study tasks
+                        and stay organized.
+                    </p>
+
+                    <button>
+                        Open Planner →
+                    </button>
+
+                </div>
+
+
+                <!-- Quiz -->
+
+                <div class="feature-card"
+                     onclick="openFeature('quiz')">
+
+                    <div class="feature-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Quiz Zone
+                    </h3>
+
+                    <p>
+                        Practice MCQs and test
+                        your knowledge.
+                    </p>
+
+                    <button>
+                        Take Quiz →
+                    </button>
+
+                </div>
+
+
+                <!-- Timer -->
+
+              <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⏱️
+                    </div>
+
+                    <h3>
+                        Focus Timer
+                    </h3>
+
+                    <p>
+                        Use focused study sessions
+                        to improve productivity.
+                    </p>
+
+                  <a href="#timer" class="timer-link">
+    Start Timer →
+</a>
+
+                </div>
+
+
+                <!-- Notes -->
+
+               <!-- Notes -->
+<div class="feature-card" onclick="document.getElementById('notes').scrollIntoView({behavior: 'smooth'})">
+
+    <div class="feature-icon">
+        📝
+    </div>
+
+    <h3>Smart Notes</h3>
+
+    <p>
+        Save and organize your important study notes.
+    </p>
+
+    <button type="button">
+        Open Notes →
+    </button>
+
+</div>
+
+
+                <!-- Goals -->
+
+                <!-- Goals -->
+<div class="feature-card"
+     onclick="document.getElementById('goals').scrollIntoView({behavior: 'smooth'})">
+
+    <div class="feature-icon">
+        🎯
+    </div>
+
+    <h3>Study Goals</h3>
+
+    <p>
+        Set goals and track your learning journey.
+    </p>
+
+    <button type="button">
+        Set Goal →
+    </button>
+
+</div>
+
+                <!-- Progress -->
+
+                <div class="feature-card"
+    onclick="openFeature('progress')">
+
+    <div class="feature-icon">
+        📊
+    </div>
+
+    <h3>Progress</h3>
+
+    <p>Track your study goals and achievements.</p>
+
+    <div class="progress-info">
+        <span id="progressText">0% Complete</span>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progressFill"></div>
+    </div>
+
+    <p id="progressDetails">
+        0 of 0 goals completed
+    </p>
+
+</div>
+
+            </div>
+<!-- STUDY GOALS -->
+ </section>
+<section id="goals" class="goals-section">
+
+    <div class="section-title">
+        <span>🎯</span>
+        <h2>Study Goals</h2>
+        <p>Set your study goals and track your progress.</p>
+    </div>
+
+    <div class="goals-box">
+
+        <input
+            type="text"
+            id="goalInput"
+            placeholder="Enter your study goal..."
+        >
+
+        <button type="button" onclick="addGoal()">
+            + Add Goal
+        </button>
+
+        <div id="goalsList">
+            <p class="no-goals">No goals added yet. 🎯</p>
+        </div>
+
+    </div>
+
+</section>
+        
+
+<!-- ===== STUDY PLANNER ===== -->
+
+<section id="planner" class="planner-section">
+
+    <div class="section-heading">
+        <p>PLAN YOUR DAY</p>
+
+        <h2>Study Planner 📚</h2>
+
+        <p class="planner-subtitle">
+            Add your study tasks and keep track of your progress.
+        </p>
+    </div>
+
+
+    <div class="planner-box">
+
+        <div class="task-input">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your study task..."
+            >
+
+            <button onclick="addTask()">
+                + Add Task
+            </button>
+
+        </div>
+
+
+        <div class="task-info">
+
+            <span>
+                Today's Tasks
+            </span>
+
+            <span id="taskCount">
+                0 Tasks
+            </span>
+
+        </div>
+
+
+        <div id="taskList">
+
+            <p class="empty-message">
+                No tasks added yet. Start planning! 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===== SMART NOTES ===== -->
+
+<section id="notes" class="notes-section">
+
+    <div class="section-heading">
+
+        <p>ORGANIZE YOUR KNOWLEDGE</p>
+
+        <h2>Smart Notes 📝</h2>
+
+        <p class="notes-subtitle">
+            Write, save and organize your study notes.
+        </p>
+
+    </div>
+
+
+    <div class="notes-box">
+
+        <input
+            type="text"
+            id="noteTitle"
+            placeholder="Enter note title..."
+        >
+
+
+        <textarea
+            id="noteContent"
+            placeholder="Write your study notes here..."
+        ></textarea>
+
+
+        <button
+            class="save-note-btn"
+            onclick="saveNote()">
+
+            + Save Note
+
+        </button>
+
+
+        <div class="saved-notes">
+
+            <div class="notes-header">
+
+                <h3>Saved Notes</h3>
+
+                <span id="noteCount">
+                    0 Notes
+                </span>
+
+            </div>
+
+
+            <div id="notesList">
+
+                <p class="no-notes">
+                    No notes saved yet. Start writing! ✍️
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- ===== ABOUT ===== -->
+
+       <section id="about" class="about page-section">
+
+    <div class="section-heading">
+        <p class="small-title">ABOUT STUDYMATE AI</p>
+
+        <h2>Your Smart Study Companion 🤖</h2>
+
+        <p class="section-subtitle">
+            StudyMate AI is a smart student companion designed to help
+            students plan their studies, organize notes, practice quizzes,
+            set goals and track their progress.
+        </p>
+    </div>
+
+    <div class="about-content">
+
+        <div class="about-card">
+            <span>📚</span>
+            <h3>Study Smarter</h3>
+            <p>
+                Plan your daily study tasks and stay organized.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <span>🧠</span>
+            <h3>Learn Better</h3>
+            <p>
+                Practice quizzes and save important study notes.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <span>🎯</span>
+            <h3>Track Progress</h3>
+            <p>
+                Set study goals and monitor your learning journey.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="quiz" class="quiz-section">
+
+    <div class="section-heading">
+        <p>TEST YOUR KNOWLEDGE</p>
+
+        <h2>Quiz Zone 🧠</h2>
+
+        <p class="quiz-subtitle">
+            Practice questions and check your knowledge.
+        </p>
+    </div>
+<!-- SUBJECT SELECTION -->
+<div class="subject-selection">
+
+    <h3>Choose Your Subject 📚</h3>
+
+    <div class="subject-buttons">
+
+        <button onclick="selectSubject('java')" class="subject-card">
+    <i class="devicon-java-plain colored"></i>
+    <span>Java</span>
+</button>
+
+<button onclick="selectSubject('dbms')" class="subject-card">
+    <i class="devicon-mysql-plain colored"></i>
+    <span>DBMS</span>
+</button>
+
+<button onclick="selectSubject('os')" class="subject-card">
+    <i class="devicon-linux-plain colored"></i>
+    <span>Operating System</span>
+</button>
+
+<button onclick="selectSubject('daa')" class="subject-card">
+    <i class="devicon-cplusplus-plain colored"></i>
+    <span>DAA</span>
+</button>
+
+<button onclick="selectSubject('cn')" class="subject-card">
+    <i class="devicon-chrome-plain colored"></i>
+    <span>Computer Networks</span>
+</button>
+
+<button onclick="selectSubject('python')" class="subject-card">
+    <i class="devicon-python-plain colored"></i>
+    <span>Python</span>
+</button>
+
+    </div>
+
+</div>
+
+    <div class="quiz-box">
+
+        <div class="quiz-top">
+
+            <span id="questionNumber">
+                Question 1 of 5
+            </span>
+
+            <span id="currentScore">
+                Score: 0
+            </span>
+
+        </div>
+
+
+        <h3 id="question">
+            Loading question...
+        </h3>
+
+
+        <div id="options" class="options">
+
+        </div>
+
+
+        <button
+            id="nextBtn"
+            class="next-btn"
+            onclick="nextQuestion()">
+
+            Next Question →
+
+        </button>
+
+
+        <div
+            id="quizResult"
+            class="quiz-result"
+            style="display: none;">
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===== FOCUS TIMER ===== -->
+
+<section id="timer" class="timer-section">
+
+    <div class="section-heading">
+        <p>FOCUS & STUDY</p>
+
+        <h2>Focus Timer ⏱️</h2>
+
+        <p class="timer-subtitle">
+            Stay focused and make every study session count.
+        </p>
+    </div>
+
+
+    <div class="timer-box">
+
+        <div class="timer-mode">
+            <button onclick="setTimer(25)" class="mode-btn active">
+                25 min
+            </button>
+
+            <button onclick="setTimer(15)" class="mode-btn">
+                15 min
+            </button>
+
+            <button onclick="setTimer(5)" class="mode-btn">
+                5 min
+            </button>
+                 <button onclick="setTimer(30)" class="mode-btn">
+    30 min
+</button>
+
+<button onclick="setTimer(45)" class="mode-btn">
+    45 min
+</button>
+
+<button onclick="setTimer(60)" class="mode-btn">
+    60 min
+</button>   
+
+        
+       <div class="custom-timer">
+
+    <input 
+        type="number" 
+        id="customHours" 
+        placeholder="Hours" 
+        min="0"
+    >
+
+    <input 
+        type="number" 
+        id="customMinutes" 
+        placeholder="Minutes" 
+        min="0" 
+        max="59"
+    >
+
+    <button onclick="setCustomTimer()" class="mode-btn">
+        Set Time
+    </button>
+
+</div>
+
+    </div>
+        </div>
+
+
+        <div id="timerDisplay">
+            25:00
+        </div>
+
+
+        <p id="timerStatus">
+            Ready to focus? 🚀
+        </p>
+
+
+        <div class="timer-buttons">
+
+            <button
+                onclick="startTimer()"
+                class="timer-start">
+                ▶ Start
+            </button>
+
+            <button
+                onclick="pauseTimer()"
+                class="timer-pause">
+                ⏸ Pause
+            </button>
+
+            <button
+                onclick="resetTimer()"
+                class="timer-reset">
+                ↻ Reset
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+                    ABOUT STUDYMATE AI
+                </p>
+
+                <h2>
+                    Your Personal Study Companion
+                </h2>
+
+                <p>
+                    StudyMate AI is designed to help students
+                    organize their studies, practice concepts,
+                    manage their time and monitor their progress
+                    from one simple platform.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        <p>
+            © 2026 StudyMate AI | Built by Anushka Chauhan
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
