@@ -1557,3 +1557,14 @@ body.light-mode .note-card {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
 }
+/* Subject Icons */
+
+.subject-card .devicon-linux-plain {
+    color: #f5f5f5 !important;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+.daa-icon {
+    font-size: 64px;
+    color: #b86cff;
+    margin-bottom: 15px;
+}
